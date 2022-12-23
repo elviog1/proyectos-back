@@ -7,8 +7,8 @@ const eventSchema = new mongoose.Schema({
     category:{type:String, required:true},
     place:{type:String, required:true},
     capacity:{type:Number, required:true},
-    assistance:{type:Number, required:true},
-    estimate:{type:Number, required:true},
+    assistance:{type:Number},
+    estimate:{type:Number},
     price:{type:Number, required:true},
     image:{type:String, required:true},
 })

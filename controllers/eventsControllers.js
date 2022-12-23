@@ -44,6 +44,30 @@ const eventsControllers = {
                 success:false
             })
         }
+    },
+    oneEvent: async (req,res)=>{
+        let {id} =req.params
+        try {
+            let event = await Event.findOne({_id:id})
+            if(event){
+                res.status(200).json({
+                    message: "you get one event",
+                    response: event,
+                    success: true
+                  }) 
+            }else{
+                res.status(400).json({
+                    message: "not found",
+                    success: false
+                  }) 
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(404).json({
+                message: error.message,
+                success: false
+              }) 
+        }
     }
 }
 
