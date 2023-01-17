@@ -1,8 +1,9 @@
 const Menu = require('../models/Menu')
 
-const menuesControllers = ({
+const menuesControllers = {
     create: async(req,res) =>{
         const {product,priceTotal,user} = req.body
+        console.log(req.body)
         try {
             let menu = await new Menu({product,priceTotal,user}).save()
             if(menu){
@@ -43,6 +44,6 @@ const menuesControllers = ({
             })
         }
     }
-})
+}
 
 module.exports = menuesControllers
