@@ -43,6 +43,29 @@ const menuesControllers = {
                 success:false
             })
         }
+    },
+    deleteMenu: async(req,res) =>{
+        let {id} = req.params
+        try {
+            let menu = await Menu.findOneAndDelete({_id:id})
+            if(menu){
+                res.status(200).json({
+                    message: "menu deleted successfully",
+                    success: true
+                })
+            }else{
+                res.status(404).json({
+                    message: "not menu found",
+                    success:false,
+                })
+            }
+        } catch (error) {
+            console.log(error)
+            res.status(400).json({
+                message: error.message,
+                success:false,
+            })
+        }
     }
 }
 
