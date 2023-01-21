@@ -2,10 +2,10 @@ const Menu = require('../models/Menu')
 
 const menuesControllers = {
     create: async(req,res) =>{
-        const {product,priceTotal,user} = req.body
+        const {product,priceTotal,user,dateMenu} = req.body
         console.log(req.body)
         try {
-            let menu = await new Menu({product,priceTotal,user}).save()
+            let menu = await new Menu({product,priceTotal,user,dateMenu}).save()
             if(menu){
                 res.status(201).json({
                     message: "menu created",
